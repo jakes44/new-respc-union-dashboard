@@ -7,9 +7,10 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{url_for('static',filename='css/materialize.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{url_for('static',filename='css/materialize.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+
 <body>
   <nav class="light-blue lighten-1" role="navigation">
   </nav>
@@ -38,7 +39,7 @@
             <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
             <h4 class="center"><strong>Current Power</strong></h4>
             <br></br>
-            <div class="center" id="currentPower"></div>
+            <div class="center" id="currentPower"><h4><strong> {{results['currentPower']}} kW</strong> <h4></div>
           </div>
         </div>
 
@@ -47,7 +48,7 @@
             <h2 class="center light-blue-text"><i class="material-icons">wb_sunny</i></h2>
             <h4 class="center"><strong>Energy</strong></h4>
             <br></br>
-            <div class="center" id="energy"></div>
+            <div class="center" id="energy"><h4><strong> {{results['energy']}} MWh </strong> <h4></div>
           </div>
         </div>
 
@@ -56,7 +57,7 @@
             <h2 class="center light-blue-text"><i class="material-icons">wb_cloudy</i></h2>
             <h4 class="center"><strong>CO2 Avoided<strong></h4>
             <br></br>
-            <div class="center" id="co2Avoided"></div>
+            <div class="center" id="co2Avoided"><h4><strong> {{results['co2Avoided']}} Tons </strong> <h4></div>
           </div>
         </div>
       </div>
@@ -73,26 +74,26 @@
     <div class="container">
       <div class="row">
         <div class="col l4 s12">
-          <img src="assets/respclogo.png">
+          <img src="{{ url_for('static', filename='assets/respclogo.png')}}">
         </div>
         <div class="col l4 s12">
-          <img src="assets/culogo.png">
+          <img src="{{ url_for('static', filename='assets/culogo.png')}}">
         </div>
         <div class="col l4 s12">
-          <img src="assets/stratalogo.png">
+          <img src="{{ url_for('static', filename='assets/stratalogo.png')}}">
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://jesseakes.me">J.A.</a> based on <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by <a class="orange-text text-lighten-3" href="http://jesseakes.me">J.A.</a> based on <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> and work by J. Baikita.
       </div>
     </div>
   </footer>
 
 
   <!--  Scripts-->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     var request = new XMLHttpRequest();
     request.open('GET', 'data.json');
     request.send();
@@ -108,11 +109,11 @@
     }
     // alert(request.status);
     //setInterval(loadData(), 15*69*1000);
-  </script>
+  </script> -->
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="{{url_for('static',filename='js/materialize.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/init.js')}}"></script>
 
   </body>
 </html>
