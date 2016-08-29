@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>RESPC Dashboard</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Carolina Union Solar Energy Dashboard</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">In fall 2015, the Renweable Energy Special Projects Comittee installed solar panels on the roof of the union to promote renewable energy across campus. The solar
+        panels have produced over 20 Mega-Watt hours of energy and have reduced the amount of carbon dioxide released into the atmosphere by 14 tons.</h5>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h4 class="center"><strong>Current Power</strong></h4>
+            <br></br>
+            <div class="center" id="currentPower"></div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">wb_sunny</i></h2>
+            <h4 class="center"><strong>Energy</strong></h4>
+            <br></br>
+            <div class="center" id="energy"></div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">wb_cloudy</i></h2>
+            <h4 class="center"><strong>CO2 Avoided<strong></h4>
+            <br></br>
+            <div class="center" id="co2Avoided"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l4 s12">
+          <img src="assets/respclogo.png">
+        </div>
+        <div class="col l4 s12">
+          <img src="assets/culogo.png">
+        </div>
+        <div class="col l4 s12">
+          <img src="assets/stratalogo.png">
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://jesseakes.me">J.A.</a> based on <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script type="text/javascript">
+    var request = new XMLHttpRequest();
+    request.open('GET', 'data.json');
+    request.send();
+
+    request.onreadystatechange = function loadData() {
+      if((request.readyState===4) && (request.status===200)) {
+        var data = JSON.parse(request.responseText);
+
+        document.getElementById('currentPower').innerHTML = '<h4><strong>' + data['currentPower'] + ' kW'+'</strong></h4>';
+        document.getElementById('energy').innerHTML = '<h4><strong>' + data['energy'] + ' MWh'+'</strong></h4>';
+        document.getElementById('co2Avoided').innerHTML = '<h4><strong>' + data['co2Avoided'] + ' Tons'+ '</strong></h4>';
+      }
+    }
+    // alert(request.status);
+    //setInterval(loadData(), 15*69*1000);
+  </script>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
