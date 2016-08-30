@@ -29,6 +29,8 @@ def getData(html):
         values[x] = page[x].get_text()
     return dict(zip(titles,values))
 
+if __name__ == '__main__':
+    app.run()
 
 # def writeOut(data):
 #     with open("data.json", "w") as writeJSON:
