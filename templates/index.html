@@ -74,7 +74,7 @@
     <div class="container">
       <div class="row">
         <div class="col l4 s12">
-          <img src="{{ url_for('static', filename='assets/respclogo.png')}}">
+          <img src="{{ url_for('static', filename='assets/respc_logo_web_black_simple.png')}}" width="70%">
         </div>
         <div class="col l4 s12">
           <img src="{{ url_for('static', filename='assets/culogo.png')}}">
@@ -93,23 +93,13 @@
 
 
   <!--  Scripts-->
-  <!-- <script type="text/javascript">
-    var request = new XMLHttpRequest();
-    request.open('GET', 'data.json');
-    request.send();
 
-    request.onreadystatechange = function loadData() {
-      if((request.readyState===4) && (request.status===200)) {
-        var data = JSON.parse(request.responseText);
-
-        document.getElementById('currentPower').innerHTML = '<h4><strong>' + data['currentPower'] + ' kW'+'</strong></h4>';
-        document.getElementById('energy').innerHTML = '<h4><strong>' + data['energy'] + ' MWh'+'</strong></h4>';
-        document.getElementById('co2Avoided').innerHTML = '<h4><strong>' + data['co2Avoided'] + ' Tons'+ '</strong></h4>';
-      }
-    }
-    // alert(request.status);
-    //setInterval(loadData(), 15*69*1000);
-  </script> -->
+  <!-- Reload page every 15 minutes -->
+  <script type="text/javascript">
+    setInterval(function() {
+      window.location.reload(true);
+    },15*60*1000);
+  </script>
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="{{url_for('static',filename='js/materialize.min.js')}}"></script>
