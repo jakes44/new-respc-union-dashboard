@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 from flask import Flask, render_template
-from gevent.wsgi import WSGIServer
 import requests
 #import json
 
@@ -31,7 +30,7 @@ def getData(html):
     return dict(zip(titles,values))
 
 if __name__ == '__main__':
-    WSGIServer(('',8088), app).serve_forever()
+    app.run()
 
 # def writeOut(data):
 #     with open("data.json", "w") as writeJSON:
