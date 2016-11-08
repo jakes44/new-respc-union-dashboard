@@ -25,8 +25,9 @@ def getData(html):
     titles = ("currentPower", "energy", "co2Avoided")
     page = html.find_all("span", class_="mainValueAmount")
     values = [None for x in range(3)]
-    for x in range(3):
-        values[x] = page[x].get_text()
+    values[0] = page[0]['data-value']
+    for x in range(2):
+        values[x+1] = page[x+1].get_text()
     return dict(zip(titles,values))
 
 if __name__ == '__main__':
