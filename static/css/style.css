@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+body {
+  overflow: hidden;
+}
+
 .icon-block {
   padding: 0 15px;
 }
