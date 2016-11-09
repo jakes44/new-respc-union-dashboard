@@ -6,7 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
-body {
+body,html {
   overflow: hidden;
 }
 
